@@ -1,5 +1,5 @@
 <?php
-    require_once 'config/database.php';
+    require_once __DIR__ . '/../config/database.php';
     
     class Usuario {
         private $id;
@@ -88,7 +88,7 @@
         public function getUsuarios() {
             global $db;
             try {
-                $query = $db->query('SELECT * FROM usuarios');
+                $query = $db->query('SELECT * FROM Usuarios');
                 return $query->fetchAll(PDO::FETCH_ASSOC);
             } catch (PDOException $e) {
                 die('Error: ' . $e->getMessage());
