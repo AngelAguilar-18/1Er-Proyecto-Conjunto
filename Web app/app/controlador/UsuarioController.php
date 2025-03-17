@@ -1,6 +1,7 @@
 <?php
-    require_once 'config/database.php';
-    require_once 'modelo/Usuario.php';
+    require_once __DIR__ . '/../modelo/Usuario.php';
+    require_once __DIR__ . '/../config/database.php';
+
 
     class UsuarioController {
         private $Usuario;
@@ -13,7 +14,3 @@
             return $this->Usuario->getUsuarios();
         }
     }
-    
-    // Ejemplo de uso
-    $controller = new UsuarioController();
-    $usuarios = $controller->listarUsuarios();

@@ -39,9 +39,9 @@
                 <tbody>
                     <?php foreach($usuarios as $usuario): ?>
                     <tr>
-                        <td><?php echo $usuario['id']; ?></td>
-                        <td><?php echo $usuario['nombre']; ?></td>
-                        <td><?php echo $usuario['email']; ?></td>
+                        <td><?php echo $usuario['ID']; ?></td>
+                        <td><?php echo $usuario['Nombre']; ?></td>
+                        <td><?php echo $usuario['CorreoElectronico']; ?></td>
                         <!-- Añade más celdas según los datos que tengas -->
                     </tr>
                     <?php endforeach; ?>
