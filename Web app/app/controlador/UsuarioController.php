@@ -12,6 +12,7 @@
         public function listarUsuarios() {
             return $this->Usuario->getUsuarios();
         }
+        
     }
     
     // Ejemplo de uso

@@ -1,0 +1,296 @@
+        /* Estilos básicos para el encabezado de Amazon */
+        .amazon-header {
+          background-color: #131921;
+          color: white;
+          padding: 10px 0;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          font-family: Arial, sans-serif;
+      }
+      
+      .amazon-logo {
+          height: 30px;
+          margin-left: 15px;
+      }
+      
+      .amazon-button {
+          background: none;
+          border: none;
+          color: white;
+          cursor: pointer;
+          text-align: left;
+          padding: 5px 10px;
+          transition: all 0.2s;
+          display: flex;
+          align-items: center;
+      }
+      
+      .amazon-button:hover {
+          outline: 1px solid white;
+          border-radius: 2px;
+      }
+      
+      .amazon-button i {
+          margin-right: 5px;
+          font-size: 18px;
+      }
+      
+      .amazon-button-text {
+          display: flex;
+          flex-direction: column;
+      }
+      
+      .amazon-button-small {
+          font-size: 12px;
+          color: #ccc;
+      }
+      
+      .amazon-button-large {
+          font-size: 14px;
+          font-weight: bold;
+      }
+      
+      .amazon-search {
+          display: flex;
+          flex-grow: 1;
+          margin: 0 15px;
+          height: 40px;
+      }
+      
+      .amazon-search select {
+          border-radius: 4px 0 0 4px;
+          border: none;
+          background-color: #f3f3f3;
+          padding: 8px;
+          cursor: pointer;
+      }
+      
+      .amazon-search input {
+          flex-grow: 1;
+          border: none;
+          padding: 8px 10px;
+          font-size: 14px;
+      }
+      
+      .amazon-search button {
+          background-color: #febd69;
+          border: none;
+          border-radius: 0 4px 4px 0;
+          padding: 0 10px;
+          cursor: pointer;
+      }
+      
+      .amazon-search button i {
+          color: #333;
+          font-size: 18px;
+      }
+      
+      .amazon-cart {
+          position: relative;
+      }
+      
+      .amazon-cart-count {
+          position: absolute;
+          top: -5px;
+          left: 12px;
+          color: #f08804;
+          font-weight: bold;
+          font-size: 16px;
+      }
+      
+      .amazon-cart i {
+          font-size: 28px;
+      }
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fff;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  /* Header y navegación */
+  header {
+    padding: 20px 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  nav a:hover {
+    color: #666;
+  }
+  
+  /* Secciones principales */
+  section {
+    margin: 60px 0;
+  }
+  
+  h2 {
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 30px;
+    position: relative;
+  }
+  
+  h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background-color: #333;
+  }
+  
+  /* Banner principal */
+  #banner-principal {
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+    margin-top: 20px;
+  }
+  
+  .slider {
+    height: 100%;
+    background-color: #f8f8f8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Categorías */
+  .grid-categorias {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .categoria {
+    aspect-ratio: 1/1;
+    background-color: #f8f8f8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .categoria:hover {
+    transform: translateY(-5px);
+  }
+  
+  /* Productos */
+  .grid-productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 30px;
+  }
+  
+  .producto {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .producto img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    background-color: #f8f8f8;
+  }
+  
+  .producto-info {
+    padding: 15px 0;
+  }
+  
+  .producto-nombre {
+    font-weight: 400;
+    margin-bottom: 5px;
+  }
+  
+  .producto-precio {
+    font-weight: 500;
+  }
+  
+  /* Testimonios */
+  .testimonios {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 20px 0;
+    scrollbar-width: thin;
+  }
+  
+  .testimonio {
+    min-width: 300px;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-radius: 2px;
+  }
+  
+  .testimonio-texto {
+    font-style: italic;
+    margin-bottom: 10px;
+  }
+  
+  .testimonio-autor {
+    font-weight: 500;
+  }
+  
+  /* Footer */
+  footer {
+    padding: 40px 0;
+    border-top: 1px solid #f0f0f0;
+    margin-top: 60px;
+    text-align: center;
+    font-size: 14px;
+  }
+  
+  /* Responsividad */
+  @media (max-width: 768px) {
+    .grid-categorias,
+    .grid-productos {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    #banner-principal {
+      height: 300px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .grid-categorias,
+    .grid-productos {
+      grid-template-columns: 1fr;
+    }
+    
+    #banner-principal {
+      height: 200px;
+    }
+    
+    nav ul {
+      flex-direction: column;
+      gap: 15px;
+    }
+  }
+  
