@@ -1,0 +1,285 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda Online - Inicio</title>
+    <link rel="stylesheet" href="../assets/styles/index-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+</head>
+<body>
+    <div id="header-container" class="sticky-header"></div>
+    <nav class="main-nav">
+        <div class="nav-container">
+            <ul class="nav-menu">                                                              <!-- Añadir funcion  -->
+                <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-bars"></i> Todas las categorías</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Ofertas del día</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Más vendidos</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Novedades</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Servicio al cliente</a></li>
+
+            </ul>
+            <div class="nav-promo">
+                <a href="#" class="promo-link">Ofertas de Especiales</a>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <!-- Banner Principal -->
+        <section id="banner-principal">
+            <div class="slider">
+                <!-- Imágenes del slider -->
+                <div class="slider-container">
+                    <div class="slide active">
+                        <img src="../assets/images/promos/promo1.jpg" alt="Promoción 1">
+                    </div>
+                    <div class="slide">
+                        <img src="../assets/images/promos/promo2.jpg" alt="Promoción 2">
+                    </div>
+                    <div class="slide">
+                        <img src="../assets/images/promos/promo3.jpg" alt="Promoción 3">
+                    </div>
+                    <div class="slide">
+                        <img src="../assets/images/promos/promo4.jpg" alt="Promoción 4">
+                    </div>
+                </div>
+                
+                <!-- Controles del slider -->
+                <button class="slider-control slider-control-left">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="slider-control slider-control-right">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                
+                <!-- Indicadores del slider -->
+                <div class="slider-indicators">
+                    <span class="indicator active" data-index="0"></span>
+                    <span class="indicator" data-index="1"></span>
+                    <span class="indicator" data-index="2"></span>
+                    <span class="indicator" data-index="3"></span>
+                </div>
+            </div>
+        </section>
+       
+        <!-- Categorías de Productos -->
+        <section id="categorias">
+            <h2>Nuestras Categorías</h2>
+            <div class="grid-categorias">
+                <!-- Lista de categorías de productos -->
+                <div class="categoria-item">
+                    <a href="#">
+                        <img src="../assets/images/categorias/Electronica.jpg" alt="Electrónica">
+                        <h3>Electrónica</h3>
+                    </a>
+                </div>
+                <div class="categoria-item">
+                    <a href="#">
+                        <img src="../assets/images/categorias/Hogar.jpg" alt="Hogar">
+                        <h3>Hogar</h3>
+                    </a>
+                </div>
+                <div class="categoria-item">
+                    <a href="#">
+                        <img src="../assets/images/categorias/Moda.jpg" alt="Moda">
+                        <h3>Moda</h3>
+                    </a>
+                </div>
+                <div class="categoria-item">
+                    <a href="#">
+                        <img src="../assets/images/categorias/deportes.jpg" alt="Deportes">
+                        <h3>Deportes</h3>
+                    </a>
+                </div>
+                <div class="categoria-item">
+                    <a href="#">
+                        <img src="../assets/images/categorias/belleza.jpg" alt="Belleza">
+                        <h3>Belleza</h3>
+                    </a>
+                </div>
+                <div class="categoria-item">
+                    <a href="#">
+                        <img src="../assets/images/categorias/libros.jpg" alt="Libros">
+                        <h3>Libros</h3>
+                    </a>
+                </div>
+                <div class="categoria-item">
+                    <a href="#">
+                        <img src="../assets/images/categorias/juguetes.jpg" alt="Juguetes">
+                        <h3>Juguetes</h3>
+                    </a>
+                </div>
+                <div class="categoria-item">
+                    <a href="#">
+                        <img src="../assets/images/categorias/jardin.jpg" alt="Jardín">
+                        <h3>Jardín</h3>
+                    </a>
+                </div>
+                <div class="categoria-item">
+                    <a href="#">
+                        <img src="../assets/images/categorias/alimentos.jpg" alt="Alimentos">
+                        <h3>Alimentos</h3>
+                    </a>
+                </div>
+                <div class="categoria-item">
+                    <a href="#">
+                        <img src="../assets/images/categorias/mascotas.jpg" alt="Mascotas">
+                        <h3>Mascotas</h3>
+                    </a>
+                </div>
+            </div>
+            <!-- Controles de navegación -->
+            <button class="categoria-control categoria-control-left">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="categoria-control categoria-control-right">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </section>
+       
+        <!-- Productos Recomendados/Ofertas -->
+        <section id="productos-destacados">
+            <h2>Productos Recomendados</h2>
+            <div class="grid-productos">
+                <!-- Grid de productos recomendados -->
+            </div>
+        </section>
+       
+        <!-- Ofertas Especiales -->
+        <section id="ofertas">
+            <h2>Ofertas Especiales</h2>
+            <div class="grid-productos">
+                <!-- Grid de productos en oferta -->
+            </div>
+        </section>
+       
+        <!-- Opiniones de Clientes -->
+        <section id="opiniones">
+            <h2>Lo que dicen nuestros clientes</h2>
+            <div class="testimonios-container">
+                <div class="testimonios-slider">
+                    <!-- Testimonio 1 -->
+                    <div class="testimonio">
+                        <div class="testimonio-contenido">
+                            <div class="testimonio-estrellas">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonio-texto">"¡Increíble servicio! Los productos llegaron antes de lo esperado y la calidad es excepcional. Definitivamente mi tienda favorita para comprar online."</p>
+                            <div class="testimonio-autor">
+                                <img src="https://randomuser.me/api/portraits/women/12.jpg" alt="María López">
+                                <div class="testimonio-info">
+                                    <h4>María López</h4>
+                                    <p>Cliente desde 2022</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonio 2 -->
+                    <div class="testimonio">
+                        <div class="testimonio-contenido">
+                            <div class="testimonio-estrellas">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <p class="testimonio-texto">"La variedad de productos es impresionante. Encontré exactamente lo que buscaba a un precio muy competitivo. El proceso de compra fue sencillo y rápido."</p>
+                            <div class="testimonio-autor">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Carlos Rodríguez">
+                                <div class="testimonio-info">
+                                    <h4>Carlos Rodríguez</h4>
+                                    <p>Cliente desde 2023</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonio 3 -->
+                    <div class="testimonio">
+                        <div class="testimonio-contenido">
+                            <div class="testimonio-estrellas">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonio-texto">"El servicio al cliente es excepcional. Tuve un pequeño problema con mi pedido y lo resolvieron de inmediato. Muy profesionales y atentos."</p>
+                            <div class="testimonio-autor">
+                                <img src="https://randomuser.me/api/portraits/women/28.jpg" alt="Ana Martínez">
+                                <div class="testimonio-info">
+                                    <h4>Ana Martínez</h4>
+                                    <p>Cliente desde 2021</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonio 4 -->
+                    <div class="testimonio">
+                        <div class="testimonio-contenido">
+                            <div class="testimonio-estrellas">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <p class="testimonio-texto">"Los precios son muy competitivos y la calidad de los productos es excelente. Las entregas siempre llegan en el tiempo prometido. Muy recomendable."</p>
+                            <div class="testimonio-autor">
+                                <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Javier Sánchez">
+                                <div class="testimonio-info">
+                                    <h4>Javier Sánchez</h4>
+                                    <p>Cliente desde 2022</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonio 5 -->
+                    <div class="testimonio">
+                        <div class="testimonio-contenido">
+                            <div class="testimonio-estrellas">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonio-texto">"He comprado varias veces y siempre quedo satisfecha. La página es muy fácil de usar y los productos son de excelente calidad. ¡Los recomiendo totalmente!"</p>
+                            <div class="testimonio-autor">
+                                <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Laura Gómez">
+                                <div class="testimonio-info">
+                                    <h4>Laura Gómez</h4>
+                                    <p>Cliente desde 2020</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonios-controles">
+                    <button class="control-prev"><i class="fas fa-chevron-left"></i></button>
+                    <div class="testimonios-indicadores">
+                        <span class="indicador activo"></span>
+                        <span class="indicador"></span>
+                        <span class="indicador"></span>
+                        <span class="indicador"></span>
+                        <span class="indicador"></span>
+                    </div>
+                    <button class="control-next"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </section>
+    </main>
+   <div id="footer-container"></div>  
+    <script src="../assets/scripts/app.js"></script>
+   
+</body>
+</html>
