@@ -94,4 +94,26 @@
                 die('Error: ' . $e->getMessage());
             }
         }
+
+        public function getUsuario($id) {
+            global $db;
+            try {
+                $query = $db->prepare('SELECT * FROM Usuarios WHERE ID = :id');
+                $query->execute(['id' => $id]);
+                return $query->fetch(PDO::FETCH_ASSOC);
+            } catch (PDOException $e) {
+                die('Error: ' . $e->getMessage());
+            }
+        }
+
+        public function Login($email, $password) {
+            global $db;
+            try {
+                $query = $db->prepare('SELECT * FROM Usuarios WHERE CorreoElectronico  = :email AND Contraseña = :password');
+                $query->execute(['email' => $email, 'password' => $password]);
+                return $query->fetch(PDO::FETCH_ASSOC);
+            } catch (PDOException $e) {
+                die('Error: ' . $e->getMessage());
+            }
+        }
     }
