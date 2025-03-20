@@ -116,4 +116,22 @@
                 die('Error: ' . $e->getMessage());
             }
         }
+
+        public function Registrar($nombre, $apellido, $email, $password, $direccion, $telefono, $tipousuario) {
+            global $db;
+            try {
+                $query = $db->prepare('INSERT INTO Usuarios (Nombre, Apellido, CorreoElectronico, Contraseña, Direccion, Telefono, TipoUsuario) VALUES (:nombre, :apellido, :email, :password, :direccion, :telefono, :tipousuario)');
+                $query->execute(
+                    ['nombre' => $this->$nombre,
+                             'apellido' => $this->$apellido,
+                             'email' => $this->$email,
+                             'password' => $this->$password, 
+                             'direccion' => $this->$direccion, 
+                             'telefono' => $this->$telefono, 
+                             'tipousuario' => $this->$tipousuario]);
+                return $query->fetch(PDO::FETCH_ASSOC);
+            } catch (PDOException $e) {
+                die('Error: ' . $e->getMessage());
+            }
+        }
     }

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registracion</title>
+    <link rel="stylesheet" href="../../assets/styles/index-styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../../assets/scripts/app.js"></script>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>
+                <h1>Registracion</h1>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <form id="RegitroForm">
+                    <input type="hidden" name="controlador" value="Login">
+                    <input type="hidden" name="accion" value="iniciarSesion">
+                    
+                    <label for="Nombre">Nombre:</label>
+                    <input type="text" name="nombre" id="nombre" required>
+                    <br>
+
+                    <label for="Apellido">Apellido:</label>
+                    <input type="text" name="apellido" id="apellido" required>
+                    <br>
+
+                    <label for="correo">Correo:</label>
+                    <input type="email" name="correo" id="correo" required>
+                    <br>
+
+                    <label for="contrasena">contraseña:</label>
+                    <input type="password" name="contrasena" id="contrasena" required>
+                    <br>
+                    
+                    <label for="direccion">Dirección:</label>
+                    <input type="text" name="direccion" id="direccion" required>
+                    <br>
+
+                    <label for="telefono">telefono:</label>
+                    <input type="text" name="telefono" id="telefono" required>
+                    <br>
+                    
+                    <input type="submit" value="Registrar">
+                </form>
+                
+                <div id="mensaje"></div>
+                
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
