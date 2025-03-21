@@ -414,11 +414,6 @@ document.addEventListener('DOMContentLoaded', function() {
             let direccion = $("#direccion").val();
             let telefono = $("#telefono").val().trim();
 
-            if (isNaN(telefono) || !Number.isInteger(Number(telefono))) {
-                alert("El teléfono debe ser un número entero");
-                return;
-            }
-    
             $.ajax({
                 type: "POST",
                 url: "../../app/Controlador/RegisterController.php",
