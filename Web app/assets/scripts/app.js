@@ -402,7 +402,36 @@ document.addEventListener('DOMContentLoaded', function() {
               });
           });
       });
-  
+      $(document).ready(function() {
+        // Manejar el botón de continuar
+        $("#continueBtn2").click(function() {
+            // Validar campos de la primera página
+            if ($("#nombre").val() && $("#apellido").val() && $("#correo").val() && $("#contrasena").val() && $("#confirmar-contrasena").val()) {
+                // Verificar que las contraseñas coincidan
+                if ($("#contrasena").val() !== $("#confirmar-contrasena").val()) {
+                    alert("Las contraseñas no coinciden");
+                    return;
+                }
+
+                // Mostrar el correo en la segunda página
+                $("#emailValue").text($("#correo").val());
+
+                // Ocultar primera página y mostrar segunda
+                $("#basicInfoPage").addClass("hidden");
+                $("#additionalInfoPage").removeClass("hidden");
+            } else {
+                alert("Por favor complete todos los campos");
+            }
+        });
+
+        // Manejar el enlace de cambiar
+        $("#changeLink").click(function(e) {
+            e.preventDefault();
+            // Mostrar primera página y ocultar segunda
+            $("#additionalInfoPage").addClass("hidden");
+            $("#basicInfoPage").removeClass("hidden");
+        });
+    });
       $(document).ready(function () {
           $("#RegistroForm").submit(function (event) {
               event.preventDefault(); // Evita la recarga de la página
@@ -486,3 +515,4 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log('Tab switching pages not present in this view');
         }
       });
+

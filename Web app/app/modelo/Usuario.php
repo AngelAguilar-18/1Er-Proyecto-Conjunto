@@ -88,8 +88,8 @@
         public static function obtenerPorCodigo($ID) {
             global $db;
             try {
-                $query = $db->prepare('SELECT ID, Nombre, Apellido, CorreoElectronico, Direccion, telefono, TipoUsuario FROM usuarios WHERE ID = :id');
-                $query->execute(['id' => $ID]);
+                $query = $db->prepare('SELECT ID, Nombre, Apellido, CorreoElectronico, telefono, TipoUsuario FROM Usuarios WHERE ID = :ID');
+                $query->execute(['ID' => $ID]);
                 return $query->fetch(PDO::FETCH_ASSOC);
             } catch (PDOException $e) {
                 die('Error: ' . $e->getMessage());

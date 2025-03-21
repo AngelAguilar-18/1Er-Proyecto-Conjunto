@@ -4,54 +4,95 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registracion</title>
-    <link rel="stylesheet" href="../../assets/styles/index-styles.css">
+    <link rel="stylesheet" href="../../assets/styles/login.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../../assets/scripts/app.js"></script>
 </head>
 <body>
-    <table>
-        <tr>
-            <td>
-                <h1>Registracion</h1>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <form id="RegistroForm">
-                    <input type="hidden" name="controlador" value="Login">
-                    <input type="hidden" name="accion" value="iniciarSesion">
-                    
-                    <label for="Nombre">Nombre:</label>
-                    <input type="text" name="nombre" id="nombre" required>
-                    <br>
+    <div class="logo-button" onclick="window.location.href='../../public/index.html'" role="button" tabindex="0">
+        <img src="../../assets/images/logo/polar-logo.png" alt="Polar">
+    </div>
 
-                    <label for="Apellido">Apellido:</label>
+    <div class="registration-container">
+        <form id="RegistroForm">
+            <input type="hidden" name="controlador" value="Login">
+            <input type="hidden" name="accion" value="iniciarSesion">
+            
+            <!-- Primera página - Información básica -->
+            <div id="basicInfoPage" class="container">
+                <h1>Crea una cuenta</h1>
+                
+                <div class="form-group">
+                    <label for="nombre">Tu nombre</label>
+                    <input type="text" name="nombre" id="nombre" placeholder="Nombre" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="apellido">Apellido</label>
                     <input type="text" name="apellido" id="apellido" required>
-                    <br>
+                </div>
 
-                    <label for="correo">Correo:</label>
+                <div class="form-group">
+                    <label for="correo">Correo electronico</label>
                     <input type="email" name="correo" id="correo" required>
-                    <br>
+                </div>
 
-                    <label for="contrasena">contraseña:</label>
-                    <input type="password" name="contrasena" id="contrasena" required>
-                    <br>
-                    
-                    <label for="direccion">Dirección:</label>
+                <div class="form-group">
+                    <label for="contrasena">Contraseña</label>
+                    <input type="password" name="contrasena" id="contrasena" placeholder="At least 6 characters" required>
+                    <div class="password-hint">Las contraseñas deben tener al menos 6 caracteres.</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="confirmar-contrasena">Escriba la contraseña otra vez</label>
+                    <input type="text" name="confirmar-contrasena" id="confirmar-contrasena" required>
+                </div>
+                
+                <button type="button" id="continueBtn2">Continuar</button>
+                
+                <div class="terms">
+                    Al crear una cuenta, usted acepta nuestras <a href="#">Condiciones de uso</a> y nuestro <a href="#">Aviso de privacidad</a>.
+                </div>
+            </div>
+            
+            <!-- Segunda página - Dirección y teléfono -->
+            <div id="additionalInfoPage" class="container hidden">
+                <h1>Completa tu registro</h1>
+                
+                <div id="emailDisplay">
+                    <span id="emailValue"></span> <a href="#" id="changeLink">Cambiar</a>
+                </div>
+                
+                <div class="form-group">
+                    <label for="direccion">Dirección</label>
                     <input type="text" name="direccion" id="direccion" required>
-                    <br>
+                </div>
 
-                    <label for="telefono">telefono:</label>
+                <div class="form-group">
+                    <label for="telefono">Numero de telefono</label>
                     <input type="text" name="telefono" id="telefono" required>
-                    <br>
-                    
-                    <input type="submit" value="Registrar">
-                </form>
+                </div>
                 
-                <div id="mensaje"></div>
-                
-            </td>
-        </tr>
-    </table>
+                <input type="submit" value="Registrar">
+            </div>
+        </form>
+        
+        <div class="divider">
+            <span>¿Ya tienes una cuenta?</span>
+        </div>
+        
+        <button type="button" class="secondary-button" onclick="window.location.href='Login.html'">Inicia sesión con tu cuenta</button>
+        
+        <div id="mensaje"></div>
+    </div>
+
+    <div class="footer">
+        <div>
+            <a href="#">Conditions of Use</a>
+            <a href="#">Privacy Notice</a>
+            <a href="#">Help</a>
+        </div>
+        <p>© 1996-2025, Polar.com, Inc. or its affiliates</p>
+    </div>
 </body>
 </html>
