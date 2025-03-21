@@ -366,3 +366,39 @@ document.addEventListener('DOMContentLoaded', function() {
     // Cargar Header y Footer
     loadComponent("../app/vista/layaouts/header.html", "header-container");
     loadComponent("../app/vista/layaouts/footer.html", "footer-container");
+
+    $(document).ready(function () {
+        $("#loginForm").submit(function (event) {
+            event.preventDefault(); // Evita la recarga de la página
+    
+            let correo = $("#correo").val();
+            let contrasena = $("#contrasena").val();
+    
+            $.ajax({
+                type: "POST",
+                url: "../../app/Controlador/LoginController.php",
+                data: { correo: correo, contrasena: contrasena },
+                dataType: "json",
+                success: function (response) {
+                    // Mostrar la respuesta en consola
+                    console.log("Datos enviados:", {
+                        correo: correo,
+                        contrasena: contrasena
+                    });
+    
+                    console.log("Respuesta del servidor:", response);
+    
+                    if (response.status === "success") {
+                        alert(response.message);
+                        window.location.href = "../../public/index.html"; // Redirigir al usuario
+                    } else {
+                        alert(response.message);
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.error("Error en la solicitud AJAX:", status, error);
+                    console.error("Respuesta del servidor:", xhr.responseText);
+                }
+            });
+        });
+    });

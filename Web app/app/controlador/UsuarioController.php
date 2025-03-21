@@ -9,9 +9,5 @@
         public function __construct() {
             $this->Usuario = new Usuario("", "", "", "", "", "", "");
         }
-    
-        public function listarUsuarios() {
-            return $this->Usuario->getUsuarios();
-        }
         
     }
