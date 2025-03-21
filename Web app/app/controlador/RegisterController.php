@@ -17,26 +17,26 @@ class RegisterController{
             $password = isset($_POST['contrasena']) ? trim($_POST['contrasena']) : '';
             $telefono = isset($_POST['telefono']) ? trim($_POST['telefono']) : '';
             $direccion = isset($_POST['direccion']) ? trim($_POST['direccion']) : '';
-            $rol = "cliente";
+            $tipousuario = "cliente";
 
             $responseData = [
                 'nombre' => $nombre,
                 'apellido' => $apellido,
                 'correo' => $email,
                 'contrasena' => $password,
-                'telefono' => $telefono,
                 'direccion' => $direccion,
-                'rol' => $rol
+                'telefono' => $telefono,
+                'tipousuario' => $tipousuario
             ];
 
-            if(empty($nombre) || empty($apellido) || empty($email) || empty($password) || empty($telefono) || empty($direccion) || empty($rol)){
+            if(empty($nombre) || empty($apellido) || empty($email) || empty($password) || empty($telefono) || empty($direccion) || empty($tipousuario)){
                 $responseData['status'] = 'error';
                 $responseData['message'] = 'Todos los campos son obligatorios.';
                 echo json_encode($responseData);
                 exit;
             }
 
-            $usuario = $this->RUsuario->Registrar($nombre, $apellido, $email, $password, $telefono, $direccion, $rol);
+            $usuario = $this->RUsuario->Registrar($nombre, $apellido, $email, $password,$direccion, $telefono, $tipousuario);
 
             if($usuario){
                 session_start();
