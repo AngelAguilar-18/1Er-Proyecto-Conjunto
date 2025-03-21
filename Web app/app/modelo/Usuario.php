@@ -85,35 +85,49 @@
             $this->tipousuario = $tipousuario;
         }
 
-        public function getUsuarios() {
+        public static function obtenerPorCodigo($id_usuario) {
             global $db;
             try {
-                $query = $db->query('SELECT * FROM Usuarios');
-                return $query->fetchAll(PDO::FETCH_ASSOC);
-            } catch (PDOException $e) {
-                die('Error: ' . $e->getMessage());
-            }
-        }
-
-        public function getUsuario($id) {
-            global $db;
-            try {
-                $query = $db->prepare('SELECT * FROM Usuarios WHERE ID = :id');
-                $query->execute(['id' => $id]);
+                $query = $db->prepare('SELECT id_usuario, nombre, apellido, correo, telefono, rol FROM usuarios WHERE id_usuario = :id');
+                $query->execute(['id' => $id_usuario]);
                 return $query->fetch(PDO::FETCH_ASSOC);
             } catch (PDOException $e) {
                 die('Error: ' . $e->getMessage());
             }
         }
 
-        public function Login($email, $password) {
+        public static function login($email, $password) {
             global $db;
             try {
-                $query = $db->prepare('SELECT * FROM Usuarios WHERE CorreoElectronico  = :email AND Contraseña = :password');
+                $query = $db->prepare('SELECT id_usuario FROM usuarios WHERE correo = :email AND contraseña = :password');
                 $query->execute(['email' => $email, 'password' => $password]);
-                return $query->fetch(PDO::FETCH_ASSOC);
+                $usuario = $query->fetch(PDO::FETCH_ASSOC);
+    
+                return $usuario ? $usuario['id_usuario'] : false;
             } catch (PDOException $e) {
                 die('Error: ' . $e->getMessage());
             }
         }
+
+        public function Registrar() {
+            global $db;
+            try {
+                $query = $db->prepare('INSERT INTO Usuarios (Nombre, Apellido, CorreoElectronico, Contraseña, Direccion, Telefono, TipoUsuario) 
+                VALUES (:nombre, :apellido, :email, :password, :direccion, :telefono, :tipousuario)');
+                $resultado = $query->execute([
+                    'nombre' => $this->nombre,
+                    'apellido' => $this->apellido,
+                    'email' => $this->email,
+                    'password' => $this->password, 
+                    'direccion' => $this->direccion, 
+                    'telefono' => $this->telefono, 
+                    'tipousuario' => $this->tipousuario
+                ]);
+                return $resultado;  // Devuelve true si se insertó correctamente, false si falló
+            } catch (PDOException $e) {
+                echo json_encode(["status" => "error", "message" => "Error en la base de datos: " . $e->getMessage()]);
+                die('Error: ' . $e->getMessage());
+            }
+        }
+        
     }

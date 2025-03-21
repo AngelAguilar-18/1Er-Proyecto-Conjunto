@@ -402,3 +402,54 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     });
+
+    $(document).ready(function () {
+        $("#RegistroForm").submit(function (event) {
+            event.preventDefault(); // Evita la recarga de la página
+    
+            let nombre = $("#nombre").val();
+            let apellido = $("#apellido").val();
+            let correo = $("#correo").val();
+            let contrasena = $("#contrasena").val();
+            let direccion = $("#direccion").val();
+            let telefono = $("#telefono").val().trim();
+
+            $.ajax({
+                type: "POST",
+                url: "../../app/Controlador/RegisterController.php",
+                data: { 
+                    nombre:nombre, 
+                    apellido: apellido,
+                    correo: correo, 
+                    contrasena: contrasena,
+                    direccion: direccion,
+                    telefono: telefono
+                },
+                dataType: "json",
+                success: function (response) {
+                    // Mostrar la respuesta en consola
+                    console.log("Datos enviados:", {
+                        nombre: nombre,
+                        apellido: apellido,
+                        correo: correo, 
+                        contrasena: contrasena,
+                        direccion: direccion,
+                        telefono: telefono
+                    });
+    
+                    console.log("Respuesta del servidor:", response);
+    
+                    if (response.status === "success") {
+                        alert(response.message);
+                        window.location.href = "../../public/index.html"; // Redirigir al usuario
+                    } else {
+                        alert(response.message);
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.error("Error en la solicitud AJAX:", status, error);
+                    console.error("Respuesta del servidor:", xhr.responseText);
+                }
+            });
+        });
+    });
