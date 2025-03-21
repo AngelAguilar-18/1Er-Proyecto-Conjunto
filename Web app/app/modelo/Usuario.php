@@ -88,7 +88,7 @@
         public static function obtenerPorCodigo($ID) {
             global $db;
             try {
-                $query = $db->prepare('SELECT ID, nombre, apellido, correo, telefono, rol FROM usuarios WHERE ID = :id');
+                $query = $db->prepare('SELECT ID, Nombre, Apellido, CorreoElectronico, Direccion, telefono, TipoUsuario FROM usuarios WHERE ID = :id');
                 $query->execute(['id' => $ID]);
                 return $query->fetch(PDO::FETCH_ASSOC);
             } catch (PDOException $e) {
@@ -99,7 +99,7 @@
         public static function login($email, $password) {
             global $db;
             try {
-                $query = $db->prepare('SELECT ID FROM usuarios WHERE correo = :email AND contraseña = :password');
+                $query = $db->prepare('SELECT ID FROM Usuarios WHERE CorreoElectronico = :email AND Contraseña = :password');
                 $query->execute(['email' => $email, 'password' => $password]);
                 $usuario = $query->fetch(PDO::FETCH_ASSOC);
     
