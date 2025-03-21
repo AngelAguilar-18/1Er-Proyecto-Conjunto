@@ -3,40 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iniciar Sesión</title>
-    <link rel="stylesheet" href="../../assets/styles/index-styles.css">
+    <title>Polar Sign In</title>
+    <link rel="stylesheet" href="../../assets/styles/login.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../../assets/scripts/app.js"></script>
 </head>
 <body>
-    <table>
-        <tr>
-            <td>
-                <h1>Iniciar Sesión</h1>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <form id="loginForm">
-                    <input type="hidden" name="controlador" value="Login">
-                    <input type="hidden" name="accion" value="iniciarSesion">
-                    
-                    <label for="correo">Correo:</label>
-                    <input type="email" name="correo" id="correo" required>
-                    <br>
-                    
-                    <label for="contrasena">Contraseña:</label>
-                    <input type="password" name="contrasena" id="contrasena" required>
-                    <br>
-                    
-                    <input type="submit" value="Iniciar Sesión">
-                </form>
+
+<div class="logo-button" onclick="window.location.href='../../public/index.html'" role="button" tabindex="0">
+    <img src="../../assets/images/logo/polar-logo.png" alt="Polar">
+</div>
+    
+    <form id="loginForm">
+        <input type="hidden" name="controlador" value="Login">
+        <input type="hidden" name="accion" value="iniciarSesion">
+        
+        <!-- Primera página - Email input -->
+        <div id="emailPage" class="container">
+            <h1>Iniciar sesión</h1>
+            
+            <div id="emailField">
+                <label for="correo">Correo Electronico</label>
+                <input type="email" name="correo" id="correo" required>
                 
-                <div id="mensaje"></div>
+                <button type="button" id="continueBtn">Continuar</button>
                 
-            </td>
-        </tr>
-    </table>
-    <a href="Register.html">si no tienes cuenta registrate</a>
+                <div class="terms">
+                    Al continuar, aceptas las <a href="#">Condiciones de uso</a> y el <a href="#">Aviso de privacidad</a> de Polar.
+                </div>
+            </div>
+            
+            <div class="divider">
+                <span>Nuevo en Polar?</span>
+            </div>
+            
+            <button type="button" class="secondary-button" onclick="window.location.href='Register.html'">Crea tu cuenta Polar</button>
+        </div>
+        
+        <!-- Segunda página - Password input -->
+        <div id="passwordPage" class="container hidden">
+            <h1>Iniciar sesión</h1>
+            
+            <div id="emailDisplay">
+                <span id="emailValue"></span> <a href="#" id="changeLink">Cambiar</a>
+            </div>
+            
+            <div id="passwordField">
+                <label for="contrasena">Contraseña</label>
+                <input type="password" name="contrasena" id="contrasena" required>
+                <div style="text-align: right; margin-top: -10px; margin-bottom: 15px;">
+                    <a href="#">¿Olvidastes tu contraseña?</a>
+                </div>
+                
+                <input type="submit" value="Iniciar sesión">
+            </div>
+        </div>
+    </form>
+    
+    <div id="mensaje"></div>
+    
+    <div class="footer">
+        <div>
+            <a href="#">Conditions of Use</a>
+            <a href="#">Privacy Notice</a>
+            <a href="#">Help</a>
+        </div>
+        <p>© 1996-2025, Polar.com, Inc. or its affiliates</p>
+    </div>
+
 </body>
 </html>

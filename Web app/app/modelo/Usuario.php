@@ -85,11 +85,11 @@
             $this->tipousuario = $tipousuario;
         }
 
-        public static function obtenerPorCodigo($id_usuario) {
+        public static function obtenerPorCodigo($ID) {
             global $db;
             try {
-                $query = $db->prepare('SELECT id_usuario, nombre, apellido, correo, telefono, rol FROM usuarios WHERE id_usuario = :id');
-                $query->execute(['id' => $id_usuario]);
+                $query = $db->prepare('SELECT ID, nombre, apellido, correo, telefono, rol FROM usuarios WHERE ID = :id');
+                $query->execute(['id' => $ID]);
                 return $query->fetch(PDO::FETCH_ASSOC);
             } catch (PDOException $e) {
                 die('Error: ' . $e->getMessage());
@@ -99,11 +99,11 @@
         public static function login($email, $password) {
             global $db;
             try {
-                $query = $db->prepare('SELECT id_usuario FROM usuarios WHERE correo = :email AND contraseña = :password');
+                $query = $db->prepare('SELECT ID FROM usuarios WHERE correo = :email AND contraseña = :password');
                 $query->execute(['email' => $email, 'password' => $password]);
                 $usuario = $query->fetch(PDO::FETCH_ASSOC);
     
-                return $usuario ? $usuario['id_usuario'] : false;
+                return $usuario ? $usuario['ID'] : false;
             } catch (PDOException $e) {
                 die('Error: ' . $e->getMessage());
             }
