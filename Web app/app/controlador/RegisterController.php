@@ -2,57 +2,35 @@
 require_once __DIR__ . '/../modelo/Usuario.php';
 require_once __DIR__ . '/../config/database.php';
 
-class RegisterController{
-    private $RUsuario;
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $nombre = isset($_POST['nombre']) ? trim($_POST['nombre']) : '';
+    $apellido = isset($_POST['apellido']) ? trim($_POST['apellido']) : '';
+    $email = isset($_POST['correo']) ? trim($_POST['correo']) : '';
+    $password = isset($_POST['contrasena']) ? trim($_POST['contrasena']) : '';
+    $direccion = isset($_POST['direccion']) ? trim($_POST['direccion']) : '';
+    $telefono = isset($_POST['telefono']) ? trim($_POST['telefono']) : '';
+    $tipousuario = "cliente";
 
-    public function __construct(){
-        $this->RUsuario = new Usuario("", "", "", "", "", "", "");
+    if (empty($nombre) || empty($apellido) || empty($email) || empty($password) || empty($telefono) || empty($direccion)) {
+        echo json_encode(['status' => 'error', 'message' => 'Todos los campos son obligatorios.']);
+        exit;
     }
 
-    public function Registrar(){
-        if($_SERVER['REQUEST_METHOD']==='POST'){
-            $nombre = isset($_POST['nombre']) ? trim($_POST['nombre']) : '';
-            $apellido = isset($_POST['apellido']) ? trim($_POST['apellido']) : '';
-            $email = isset($_POST['correo']) ? trim($_POST['correo']) : '';
-            $password = isset($_POST['contrasena']) ? trim($_POST['contrasena']) : '';
-            $telefono = isset($_POST['telefono']) ? trim($_POST['telefono']) : '';
-            $direccion = isset($_POST['direccion']) ? trim($_POST['direccion']) : '';
-            $rol = "cliente";
+    $usuario = new Usuario($nombre, $apellido, $email, $password, $direccion, $telefono, $tipousuario);
 
-            $responseData = [
-                'nombre' => $nombre,
-                'apellido' => $apellido,
-                'correo' => $email,
-                'contrasena' => $password,
-                'telefono' => $telefono,
-                'direccion' => $direccion,
-                'rol' => $rol
-            ];
+    if ($usuario->Registrar()) {
+        session_start();
+        $_SESSION['usuario'] = [
+            'nombre' => $nombre,
+            'apellido' => $apellido,
+            'correo' => $email,
+            'direccion' => $direccion,
+            'telefono' => $telefono,
+            'rol' => $tipousuario
+        ];
 
-            if(empty($nombre) || empty($apellido) || empty($email) || empty($password) || empty($telefono) || empty($direccion) || empty($rol)){
-                $responseData['status'] = 'error';
-                $responseData['message'] = 'Todos los campos son obligatorios.';
-                echo json_encode($responseData);
-                exit;
-            }
-
-            $usuario = $this->RUsuario->Registrar($nombre, $apellido, $email, $password, $telefono, $direccion, $rol);
-
-            if($usuario){
-                session_start();
-                $_SESSION['usuario'] = $usuario;
-
-                $responseData['status'] = 'success';
-                $responseData['message'] = 'Registro exitoso';
-            }else{
-                $responseData['status'] = 'error';
-                $responseData['message'] = 'Error al registrar';
-            }
-
-            echo json_encode($responseData);
-        }
+        echo json_encode(['status' => 'success', 'message' => 'Registro exitoso']);
+    } else {
+        echo json_encode(['status' => 'error', 'message' => 'Error al registrar usuario']);
     }
 }
-
-$controlador = new RegisterController();
-$controlador->Registrar();
